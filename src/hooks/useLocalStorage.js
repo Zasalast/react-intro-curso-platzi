@@ -38,7 +38,9 @@ function useLocalStorage(itemName, initialValue) {
   return {
     item,
     saveItem,
-    loading ,error }
+    loading,
+    error
+  }
   
 }
 export {useLocalStorage}
