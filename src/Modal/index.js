@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css'
  import { TodoContext} from '../context/todoContext'
 const Modal = ({ children }) => {
-  const { openModal,setOpenModal}=React.useContext(TodoContext)
+  const {  setOpenModal}=React.useContext(TodoContext)
     const onClickButton = () => {
         setOpenModal(false) 
     }

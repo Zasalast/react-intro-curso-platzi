@@ -19,14 +19,14 @@ function AppUI() {
           loading,
           searchTodos,
           completeTodo,
-          deleteTodo,openModal,setOpenModal,descompleteTodo
+    deleteTodo,
+    openModal,
+      unchecktodo
         } = React.useContext(TodoContext);
   return (
     <React.Fragment>
       <TodoCounter />
-      <TodoSearch />
-
-    
+      <TodoSearch />    
           <TodoList>
         {
           error && <p>desesperate, ocurrio un error...</p>
@@ -57,9 +57,9 @@ function AppUI() {
             key={todo.text}
             text={todo.text}
             completed={todo.completed}
-            onComplete={() => completeTodo(todo.text)}
-            ondesComplete={() => descompleteTodo(todo.text)}
-            onDelete={() => deleteTodo(todo.text)}
+            completeTodo={() => completeTodo(todo.text)}
+            unchecktodo ={() => unchecktodo(todo.text)}
+            deleteTodo={() => deleteTodo(todo.text)}
                />
             ))}
              </TodoList>

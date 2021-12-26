@@ -28,7 +28,7 @@ function TodoProvider(props) {
   
     const completedTodos = todosValue.filter(todosValue => !!todosValue.completed).length
     
-    const notCompletedTodos = todosValue.filter(todosValue => !todosValue.completed).length
+     
     
   const totaltodos = todosValue.length
 
@@ -65,7 +65,7 @@ function TodoProvider(props) {
     saveTodos(newTodos)
   }
 
-   const descompleteTodo=(text)=> {
+   const unchecktodo=(text)=> {
     const todoIndex = todosValue.findIndex(todo => todo.text === text)
     const newTodos = [...todosValue]
     newTodos[todoIndex].completed = false 
@@ -95,7 +95,7 @@ function TodoProvider(props) {
         setSearchValue,
                searchTodos,
         completeTodo,
-        descompleteTodo,
+        unchecktodo,
         deleteTodo,
         openModal,
         setOpenModal,

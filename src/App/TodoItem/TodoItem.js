@@ -2,33 +2,28 @@ import React, { useContext } from 'react'
 import './TodoItem.css'
 import { TodoContext} from './../../context/todoContext'
 function TodoItem(props) {
-  const {onComplete, descompleteTodo}=useContext(TodoContext)
-/*   const onComplete = () => {
-    alert('comple'+props.text)
-  }
-  const onDelete = () => {
-    alert('eliminado'+props.text)
-  } */
+  const {    deleteTodo  } = useContext(TodoContext)
+  const {text,completed,unchecktodo,completeTodo}= props
+ 
     return (
         <li className="TodoItem">
-        <span className={`Icon Icon-check ${props.completed && 'Icon-check--active'}`}
-        onClick={props.onComplete}>
+        <span className={`Icon Icon-check ${completed && 'Icon-check--active'}`}
+        onClick={completeTodo}>
         √
         </span>
-        <span className={`Icon Icon-delete Icon-check ${props.completed && 'Icon-check--desactive'}`}
-          onClick={props.ondesComplete}>
+        <span className={`Icon Icon-delete Icon-check ${completed && 'Icon-check--desactive'}`}
+          onClick={ unchecktodo}>
         -
         </span>
-      <p className={`TodoItem-p ${props.completed && 'TodoItem-p--complete'}`}>
-        {props.text}
+    {/*   <p className={`TodoItem-p ${completed && 'TodoItem-p--complete'}`}>
+        {text}
+        </p> */}
+       <p className={`TodoItem-p ${completed && 'TodoItem-p--complete'}`}>
+        {text}
         </p>
-       {/*   <span value="des active" className={`Icon Icon-delete Icon-check ${props.completed && 'Icon-check--desactive'}`}
-        onClick={descompleteTodo}>
-          -
-      </span> */}
            <span
         className="Icon Icon-delete"
-        onClick={props.onDelete}
+        onClick={deleteTodo}
       >
         X
       </span>
