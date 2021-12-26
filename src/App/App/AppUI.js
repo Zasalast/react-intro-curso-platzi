@@ -1,34 +1,53 @@
- import React from 'react';
- 
+import React from 'react';
+ import ContentLoader from 'react-content-loader'
+
+  import './../../Modal/index.css'
 import { TodoCounter } from '../TodoCounter/TodoCounter';
-import {TodoContext} from '../context/todoContext';
+import {TodoContext} from '../../context/todoContext';
 import {TodoSearch} from '../TodoSearch/TodoSearch';
 import {TodoList} from '../TodoList/TodoList';
 import {CreateTodoButton} from '../CreateTodoButton/CreateTodoButton';
 import {TodoItem} from '../TodoItem/TodoItem';
+import {Modal} from './../../Modal/index'
+import { TodoForm } from '../TodoForm';
 
  
 function AppUI() {
- 
+  
+  const {
+          error,
+          loading,
+          searchTodos,
+          completeTodo,
+          deleteTodo,openModal,setOpenModal,descompleteTodo
+        } = React.useContext(TodoContext);
   return (
     <React.Fragment>
       <TodoCounter />
       <TodoSearch />
 
-      <TodoContext.Consumer>
-        {({
-          error,
-          loading,
-          searchTodos,
-          completeTodo,
-          deleteTodo
-        }) => (
+    
           <TodoList>
         {
           error && <p>desesperate, ocurrio un error...</p>
         }
         {
-          loading && <p>No desesperes, estamos cargando...</p>
+          loading && <p><ContentLoader
+             rtl
+      speed={2}
+         width={"100%"}
+    height={160}
+    viewBox="0 0 100% 160"
+      backgroundColor="#d9d9d9"
+      foregroundColor="#ededed"
+     /*  {...props} */
+    >  
+     <rect x="0" y="0"   width="100%" height="38" />
+      <rect x="0" y="40"   width="100%" height="38" />
+       
+      <rect x="0" y="80"   width="100%" height="38" />
+      <rect x="0" y="120"   width="100%" height="38" />
+    </ContentLoader></p>
         }
         {
           (!loading && !searchTodos.length) && <p>Crea tu primera tarea</p>
@@ -39,12 +58,17 @@ function AppUI() {
             text={todo.text}
             completed={todo.completed}
             onComplete={() => completeTodo(todo.text)}
+            ondesComplete={() => descompleteTodo(todo.text)}
             onDelete={() => deleteTodo(todo.text)}
                />
             ))}
              </TodoList>
-        )}
-      </TodoContext.Consumer>
+      {openModal && <Modal><div>
+  
+ <TodoForm/>
+      </div>
+     
+    </Modal>}
 
       <CreateTodoButton />
     </React.Fragment>

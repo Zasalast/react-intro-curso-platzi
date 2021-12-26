@@ -1,5 +1,5 @@
 import React from "react";
-import { useLocalStorage} from './../../hooks/useLocalStorage'
+import { useLocalStorage} from '../hooks/useLocalStorage'
 const TodoContext = React.createContext();
 
 function TodoProvider(props) {
@@ -19,9 +19,11 @@ function TodoProvider(props) {
     setTodosValue(newTodos)
   } */
 //const [todos, saveTodos] = useLocalStorage('TODOS_V1', []);
-
+  const [openModal, setOpenModal] = React.useState(false)
+  
  const {item:todosValue,
-    saveItem: saveTodos,loading,error} = useLocalStorage('TODOS_V1', []);
+   saveItem: saveTodos, loading, error } = useLocalStorage('TODOS_V1', []);
+  
   const [searchValue, setSearchValue] = React.useState('');
   
     const completedTodos = todosValue.filter(todosValue => !!todosValue.completed).length
@@ -46,6 +48,13 @@ function TodoProvider(props) {
   //const aaa=JSON.stringify([{}])
   //JSON.parse(aaa)
   ///localStorage.setItem('ejemplotodos',aaa)
+ /*  [
+  { text: 'Cortar cebolla', completed: true },
+  { text: 'Tomar el cursso de intro a React', completed: false },
+  { text: 'Llorar con la llorona', completed: false },
+  { text: 'Llorar con la llorona', completed: true },
+  { text: 'LALALALAA', completed: false },
+] */
     ///localStorage.getItem('ejemplotodos')
    //JSON.parse(localStorage.getItem('ejemplotodos'))
   const completeTodo=(text)=> {
@@ -55,11 +64,24 @@ function TodoProvider(props) {
  
     saveTodos(newTodos)
   }
+
+   const descompleteTodo=(text)=> {
+    const todoIndex = todosValue.findIndex(todo => todo.text === text)
+    const newTodos = [...todosValue]
+    newTodos[todoIndex].completed = false 
+    saveTodos(newTodos)
+   }
   
    const deleteTodo=(text)=> {
     const todoIndex = todosValue.findIndex(todo => todo.text === text)
     const newTodos = [...todosValue]
     newTodos.splice(todoIndex,1)
+    saveTodos(newTodos)
+   }
+  
+   const addTodo=(text)=> {  
+    const newTodos = [...todosValue]
+    newTodos.push({completed:false,text,})
     saveTodos(newTodos)
     }
     return (
@@ -68,11 +90,17 @@ function TodoProvider(props) {
         loading,
         totaltodos,
         completedTodos,
+        
         searchValue,
         setSearchValue,
                searchTodos,
-            completeTodo,
-            deleteTodo    }}>
+        completeTodo,
+        descompleteTodo,
+        deleteTodo,
+        openModal,
+        setOpenModal,
+        addTodo
+      }}>
       {props.children}
     </TodoContext.Provider>
   );
