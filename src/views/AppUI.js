@@ -1,15 +1,15 @@
 import React from 'react';
  import ContentLoader from 'react-content-loader'
 
-  import './../../Modal/index.css'
-import { TodoCounter } from '../TodoCounter/TodoCounter';
-import {TodoContext} from '../../context/todoContext';
-import {TodoSearch} from '../TodoSearch/TodoSearch';
-import {TodoList} from '../TodoList/TodoList';
-import {CreateTodoButton} from '../CreateTodoButton/CreateTodoButton';
-import {TodoItem} from '../TodoItem/TodoItem';
-import {Modal} from './../../Modal/index'
-import { TodoForm } from '../TodoForm';
+  import './../components/Modal/index.css'
+import { TodoCounter } from '../components/TodoCounter/TodoCounter';
+import {TodoContext} from '../context/todoContext';
+import {TodoSearch} from '../components/TodoSearch/TodoSearch';
+import {TodoList} from '../components/TodoList/TodoList';
+import {CreateTodoButton} from '../components/CreateTodoButton/CreateTodoButton';
+import {TodoItem} from '../components/TodoItem/TodoItem';
+import {Modal} from './../components/Modal/index'
+import { TodoForm } from '../components/TodoForm';
 
  
 function AppUI() {

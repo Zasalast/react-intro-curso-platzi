@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css'
- import { TodoContext} from '../context/todoContext'
+ import { TodoContext} from '../../context/todoContext'
 const Modal = ({ children }) => {
   const {  setOpenModal}=React.useContext(TodoContext)
     const onClickButton = () => {
