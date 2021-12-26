@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/react-intro-curso-platzi/static/css/main.ef0d8f33.css",
+    "main.css": "/react-intro-curso-platzi/static/css/main.0a2ad7cd.css",
     "main.js": "/react-intro-curso-platzi/static/js/main.c5dc72ae.js",
     "static/js/787.17ca9144.chunk.js": "/react-intro-curso-platzi/static/js/787.17ca9144.chunk.js",
     "static/media/trash.svg": "/react-intro-curso-platzi/static/media/trash.c8f8bc336fa97d263b7a968f69a6cdc5.svg",
     "index.html": "/react-intro-curso-platzi/index.html",
     "static/media/checkmark.svg": "/react-intro-curso-platzi/static/media/checkmark.3d9fac0b46f085a20cdbb4d81fec71f5.svg",
     "static/media/disable.svg": "/react-intro-curso-platzi/static/media/disable.74c379e2d5660c50f443da6ab7dca044.svg",
-    "main.ef0d8f33.css.map": "/react-intro-curso-platzi/static/css/main.ef0d8f33.css.map",
+    "main.0a2ad7cd.css.map": "/react-intro-curso-platzi/static/css/main.0a2ad7cd.css.map",
     "main.c5dc72ae.js.map": "/react-intro-curso-platzi/static/js/main.c5dc72ae.js.map",
     "787.17ca9144.chunk.js.map": "/react-intro-curso-platzi/static/js/787.17ca9144.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ef0d8f33.css",
+    "static/css/main.0a2ad7cd.css",
     "static/js/main.c5dc72ae.js"
   ]
 }
